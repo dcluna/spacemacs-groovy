@@ -28,15 +28,23 @@ which require an initialization must be listed explicitly in the list.")
       "m l" 'groovy-send-line
       "m d" 'groovy-send-definition
       "m r" 'groovy-send-region
+      "m L" 'groovy-send-line-and-go
       "m D" 'groovy-send-definition-and-go
       "m R" 'groovy-send-region-and-go
      ))
   )
 
-(defun groovy-send-buffer ()
+(defun groovy-send-line ()
   (interactive)
   (groovy-send-region (line-beginning-position) (line-end-position))
   )
+
+(defun groovy-send-line-and-go ()
+  (interactive)
+  (groovy-send-line)
+  (switch-to-groovy t)
+  )
+
 
 (defun groovy-send-buffer ()
   (interactive)
