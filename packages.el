@@ -23,9 +23,25 @@ which require an initialization must be listed explicitly in the list.")
 
 (defun groovy/init-groovy-mode ()
   "Initialize groovy-mode"
-  (use-package groovy-mode)
+  (use-package groovy-mode :config
+    (evil-leader/set-key-for-mode 'groovy-mode "m b" 'groovy-send-buffer
+      "m l" 'groovy-send-line
+      "m d" 'groovy-send-definition
+      "m r" 'groovy-send-region
+      "m D" 'groovy-send-definition-and-go
+      "m R" 'groovy-send-region-and-go
+     ))
   )
 
+(defun groovy-send-buffer ()
+  (interactive)
+  (groovy-send-region (line-beginning-position) (line-end-position))
+  )
+
+(defun groovy-send-buffer ()
+  (interactive)
+  (groovy-send-region (point-min) (point-max))
+  )
 
 ;; For each package, define a function groovy/init-<package-groovy>
 ;;
