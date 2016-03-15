@@ -36,27 +36,14 @@ which require an initialization must be listed explicitly in the list.")
 
 (defun groovy-send-line ()
   (interactive)
-  (groovy-send-region (line-beginning-position) (line-end-position))
-  )
+  (groovy-send-region (line-beginning-position) (line-end-position)))
 
 (defun groovy-send-line-and-go ()
   (interactive)
   (groovy-send-line)
-  (switch-to-groovy t)
-  )
+  (switch-to-groovy t))
 
 
 (defun groovy-send-buffer ()
   (interactive)
-  (groovy-send-region (point-min) (point-max))
-  )
-
-;; For each package, define a function groovy/init-<package-groovy>
-;;
-;; (defun groovy/init-my-package ()
-;;   "Initialize my package"
-;;   )
-;;
-;; Often the body of an initialize function uses `use-package'
-;; For more info on `use-package', see readme:
-;; https://github.com/jwiegley/use-package
+  (groovy-send-region (point-min) (point-max)))
